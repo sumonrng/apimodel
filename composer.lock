@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a6e3c5e985fc7375fa674c3cc594a7b",
+    "content-hash": "ac9fca95d9d03ce8e37a3f0133787804",
     "packages": [
         {
             "name": "brick/math",
@@ -1315,6 +1315,70 @@
             "time": "2024-06-17T13:58:22+00:00"
         },
         {
+            "name": "laravel/sanctum",
+            "version": "v4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sanctum.git",
+                "reference": "9cfc0ce80cabad5334efff73ec856339e8ec1ac1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/9cfc0ce80cabad5334efff73ec856339e8ec1ac1",
+                "reference": "9cfc0ce80cabad5334efff73ec856339e8ec1ac1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/console": "^11.0",
+                "illuminate/contracts": "^11.0",
+                "illuminate/database": "^11.0",
+                "illuminate/support": "^11.0",
+                "php": "^8.2",
+                "symfony/console": "^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^9.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Sanctum\\SanctumServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Sanctum\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel Sanctum provides a featherweight authentication system for SPAs and simple APIs.",
+            "keywords": [
+                "auth",
+                "laravel",
+                "sanctum"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/sanctum/issues",
+                "source": "https://github.com/laravel/sanctum"
+            },
+            "time": "2024-04-10T19:39:58+00:00"
+        },
+        {
             "name": "laravel/serializable-closure",
             "version": "v1.3.3",
             "source": {
@@ -1815,6 +1879,59 @@
                 }
             ],
             "time": "2024-01-28T23:22:08+00:00"
+        },
+        {
+            "name": "mkhab7/nowpayments",
+            "version": "v1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mkhab7/now-payments.git",
+                "reference": "e7e6b9e54e4a85ed004d9fe6a2cff6fd48fe5036"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mkhab7/now-payments/zipball/e7e6b9e54e4a85ed004d9fe6a2cff6fd48fe5036",
+                "reference": "e7e6b9e54e4a85ed004d9fe6a2cff6fd48fe5036",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.3",
+                "php": ">=8"
+            },
+            "require-dev": {
+                "pestphp/pest": "^1.22",
+                "symfony/error-handler": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Onetoweb\\NOWPayments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan van 't Ende",
+                    "email": "jvantende@onetoweb.nl"
+                }
+            ],
+            "description": "NOWPayments API Client",
+            "homepage": "https://github.com/onetoweb/nowpayments",
+            "keywords": [
+                "api",
+                "nowpayments",
+                "php"
+            ],
+            "support": {
+                "source": "https://github.com/mkhab7/now-payments/tree/v1.1.7"
+            },
+            "time": "2022-09-07T14:17:50+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2318,6 +2435,56 @@
             "time": "2024-03-06T16:17:14+00:00"
         },
         {
+            "name": "onetoweb/nowpayments",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/onetoweb/nowpayments.git",
+                "reference": "ee4e33bcdc7e5f1ff89a8873fdac1de3fc0758f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/onetoweb/nowpayments/zipball/ee4e33bcdc7e5f1ff89a8873fdac1de3fc0758f5",
+                "reference": "ee4e33bcdc7e5f1ff89a8873fdac1de3fc0758f5",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.3",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "symfony/error-handler": "^5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Onetoweb\\NOWPayments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan van 't Ende",
+                    "email": "jvantende@onetoweb.nl"
+                }
+            ],
+            "description": "NOWPayments API Client",
+            "homepage": "https://github.com/onetoweb/nowpayments",
+            "keywords": [
+                "api",
+                "nowpayments",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/onetoweb/nowpayments/issues",
+                "source": "https://github.com/onetoweb/nowpayments/tree/v1.0.4"
+            },
+            "time": "2021-07-14T14:17:18+00:00"
+        },
+        {
             "name": "phpoption/phpoption",
             "version": "1.9.2",
             "source": {
@@ -2391,6 +2558,74 @@
                 }
             ],
             "time": "2023-11-12T21:59:55+00:00"
+        },
+        {
+            "name": "prevailexcel/laravel-nowpayments",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PrevailExcel/laravel-nowpayments.git",
+                "reference": "814630d97b0deef66c9f26e456e1d2d3b7ce788d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PrevailExcel/laravel-nowpayments/zipball/814630d97b0deef66c9f26e456e1d2d3b7ce788d",
+                "reference": "814630d97b0deef66c9f26e456e1d2d3b7ce788d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PrevailExcel\\Nowpayments\\NowpaymentsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Nowpayments": "PrevailExcel\\Nowpayments\\Facades\\Nowpayments"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "utils/helpers/nowpayments.php"
+                ],
+                "psr-4": {
+                    "PrevailExcel\\Nowpayments\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PrevailExcel",
+                    "email": "prevailexcellent@gmail.com"
+                }
+            ],
+            "description": "A Laravel Package for NOWPayments",
+            "keywords": [
+                "crypto",
+                "crypto payments",
+                "github",
+                "laravel",
+                "laravel 6",
+                "laravel 7",
+                "laravel 8",
+                "laravel 9",
+                "nowpayments",
+                "open source",
+                "payments",
+                "php",
+                "subscription"
+            ],
+            "support": {
+                "issues": "https://github.com/PrevailExcel/laravel-nowpayments/issues",
+                "source": "https://github.com/PrevailExcel/laravel-nowpayments/tree/1.0.2"
+            },
+            "time": "2024-01-08T12:59:14+00:00"
         },
         {
             "name": "psr/clock",
