@@ -24,24 +24,15 @@
     <!-- Style customizer (Remove these two lines please) -->
     <link rel="stylesheet" href="javascript:void(0)" data-style="styles">
     <link rel="stylesheet" href="../css/style-customizer.css" />
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113778816-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-113778816-1');
-</script>
 </head>
 
 <body>
     <!-- loading -->
-    <div id="loading">
+    {{-- <div id="loading">
         <div id="loading-center">
             <img src="../images/loader.gif" alt="loder">
         </div>
-    </div>
+    </div> --}}
     <!-- loading End -->
     <!-- Header -->
     <header class="simpal-yellow">
@@ -360,7 +351,7 @@
                 <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="3" data-items-laptop="3" data-items-tab="2" data-items-mobile="1" data-items-mobile-sm="1" data-margin="30">
                     <div class="item">
                         <div class="feature-aria">
-                            <div class="feature-img"><img alt="" class="img-fluid" src="images/about-us/04.jpg"></div>
+                            <div class="feature-img"><img alt="" class="img-fluid" src="../images/about-us/04.jpg"></div>
                             <div class="feature-content dark-bg">
                                 <h6 class="iq-font-yellow mb-2">Service 1</h6>
                                 <h4 class="iq-font-dark mb-3"><a href="services-details.html">Fast Transaction</a></h4>
@@ -382,7 +373,7 @@
                     </div>
                     <div class="item">
                         <div class="feature-aria">
-                            <div class="feature-img"><img alt="" class="img-fluid" src="images/about-us/06.jpg"></div>
+                            <div class="feature-img"><img alt="" class="img-fluid" src="../images/about-us/06.jpg"></div>
                             <div class="feature-content dark-bg">
                                 <h6 class="iq-font-yellow mb-2">Outstanding</h6>
                                 <h4 class="iq-font-dark mb-3 "><a href="services-details.html">Coin Exchange</a></h4>
@@ -823,14 +814,13 @@ Login -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <x-form action="{{ route('login') }}" method="POST">
                     <div class="form-group mb-3">
-                        <x-text-input type="text" id="recipient-name" name='email' placeholder="Enter Name"/>
+                        <x-text-input type="text" id="email" name='email' placeholder="Enter Name"/>
                     </div>
                     <div class="form-group">
                         <x-text-input type="password" name="password" id="password" placeholder="Password"/>
                     </div>
-                    <x-button type="submit" class="button iq-mtb-10 button-inner-box" :value="__('Sign In')"/>
+                    <x-button type="submit" id="loginButton" class="button iq-mtb-10 button-inner-box" :value="__('Sign In')"/>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-check">
@@ -842,7 +832,6 @@ Login -->
                             <a href="javascript:void(0)" class="iq-font-yellow">Forgot Password</a>
                         </div>
                     </div>
-                </x-form>
             </div>
             <div class="modal-footer text-center">
                 <div> Don't Have an Account? <a href="{{route('signup')}}" class="iq-font-yellow">Register Now</a></div>
@@ -968,68 +957,94 @@ Register -->
     <!-- Custom JavaScript -->
     <script src="../js/custom.js "></script>
     <script>
-    var revapi4,
-        tpj = jQuery;
-    tpj(document).ready(function() {
-        if (tpj("#rev_slider_4_1").revolution == undefined) {
-            revslider_showDoubleJqueryError("#rev_slider_4_1");
-        } else {
-            revapi4 = tpj("#rev_slider_4_1").show().revolution({
-                sliderType: "standard",
-                sliderLayout: "fullwidth",
-                dottedOverlay: "none",
-                delay: 9000,
-                navigation: {
-                    keyboardNavigation: "off",
-                    keyboard_direction: "horizontal",
-                    mouseScrollNavigation: "off",
-                    mouseScrollReverse: "default",
-                    onHoverStop: "off",
-                    arrows: {
-                        style: "zeus",
-                        enable: true,
-                        hide_onmobile: false,
-                        hide_onleave: false,
-                        tmp: '<div class="tp-title-wrap">    <div class="tp-arr-imgholder"></div> </div>',
-                        left: {
-                            h_align: "left",
-                            v_align: "center",
-                            h_offset: 20,
-                            v_offset: 0
-                        },
-                        right: {
-                            h_align: "right",
-                            v_align: "center",
-                            h_offset: 20,
-                            v_offset: 0
+        var revapi4,
+            tpj = jQuery;
+        tpj(document).ready(function() {
+            if (tpj("#rev_slider_4_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_4_1");
+            } else {
+                revapi4 = tpj("#rev_slider_4_1").show().revolution({
+                    sliderType: "standard",
+                    sliderLayout: "fullwidth",
+                    dottedOverlay: "none",
+                    delay: 9000,
+                    navigation: {
+                        keyboardNavigation: "off",
+                        keyboard_direction: "horizontal",
+                        mouseScrollNavigation: "off",
+                        mouseScrollReverse: "default",
+                        onHoverStop: "off",
+                        arrows: {
+                            style: "zeus",
+                            enable: true,
+                            hide_onmobile: false,
+                            hide_onleave: false,
+                            tmp: '<div class="tp-title-wrap">    <div class="tp-arr-imgholder"></div> </div>',
+                            left: {
+                                h_align: "left",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
+                            },
+                            right: {
+                                h_align: "right",
+                                v_align: "center",
+                                h_offset: 20,
+                                v_offset: 0
+                            }
                         }
+                    },
+                    visibilityLevels: [1240, 1024, 778, 480],
+                    gridwidth: 1170,
+                    gridheight: 790,
+                    lazyType: "none",
+                    shadow: 0,
+                    spinner: "spinner0",
+                    stopLoop: "off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle: "off",
+                    autoHeight: "off",
+                    disableProgressBar: "on",
+                    hideThumbsOnMobile: "off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll: "off",
+                        nextSlideOnWindowFocus: "off",
+                        disableFocusListener: false,
                     }
+                });
+            }
+        }); /*ready*/
+    </script>
+    <script>
+       $(document).ready(function(){
+           $("#loginButton").on("click",function(){
+            const email = $("#email").val();
+            const password = $("#password").val();
+            $.ajax({
+                url:'login',
+                type:'POST',
+                contentType:'application/json',
+                data:JSON.stringify({
+                    email:email,
+                    password:password
+                }),
+                success:function(response){
+                    console.log(response.data.token);
+                    localStorage.setItem('api-token',response.data.token);
+                    window.location.href = '/api/index';
                 },
-                visibilityLevels: [1240, 1024, 778, 480],
-                gridwidth: 1170,
-                gridheight: 790,
-                lazyType: "none",
-                shadow: 0,
-                spinner: "spinner0",
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-                shuffle: "off",
-                autoHeight: "off",
-                disableProgressBar: "on",
-                hideThumbsOnMobile: "off",
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                debugMode: false,
-                fallbacks: {
-                    simplifyAll: "off",
-                    nextSlideOnWindowFocus: "off",
-                    disableFocusListener: false,
+                error:function(xhr,status,error){
+                    console.log('Error:' + xhr.responseText);
                 }
             });
-        }
-    }); /*ready*/
+
+        });
+       });
     </script>
 </body>
 

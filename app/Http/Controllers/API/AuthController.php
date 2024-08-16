@@ -13,6 +13,7 @@ class AuthController extends BaseController
 {
     public function index(){
         return view('index');
+        
     }
     public function signup(Request $request)
     {
@@ -42,13 +43,17 @@ class AuthController extends BaseController
             'email'=>$request->email,
             'password'=>$request->password
         ]);
-        $success['token'] = $user->createToken('RestApi')->plainTextToken;
+        $success['token'] = $user->createToken('api-token')->plainTextToken;
         return $this->sendResponse($success,'Registration Successfully');
         // return response()->json([
         //     'status'=>true,
         //     'message'=>'Signup Successfully',
         //     'user'=>$user
         // ],200);
+    }
+    public function loginView()
+    {
+        return view('auth/login');
     }
     public function login(Request $request)
     {
@@ -68,7 +73,7 @@ class AuthController extends BaseController
         }
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             $user = Auth::user();
-            $success['token'] = $user->createToken('RestApi')->plainTextToken;
+            $success['token'] = $user->createToken('api-token')->plainTextToken;
             $success['name'] = $user->name;
             $success['token_type'] = "bearer";
             // return response()->json($success,'Login Successfully');
@@ -86,12 +91,13 @@ class AuthController extends BaseController
     }
     public function logout(Request $request)
     {
+        
+        // auth()->user()->tokens()->delete();
+        // Auth::user()->tokens()->delete();
+        // return $this->sendResponse([],'Logout');
         $user = $request->user();
         $user->tokens()->delete();
-        // auth()->user()->tokens()->delete();
         return $this->sendResponse([],'Logout');
-        // $user = $request->user();
-        // $user->tokens()->delete();
         // return response()->json([
         //     'status'=>true,
         //     'user'=>$user,

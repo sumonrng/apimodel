@@ -29,13 +29,12 @@
                     <div class="card-body">
                         <div class="auth-form">
                                 <h2 class="text-center mb-4">Sign In</h2>
-                                <x-form action={{}} method="POST">
                                     <div class="form-floating mb-3">
-                                        <x-text-input type="text" id="floatingInput" placeholder="name@example.com"/>
+                                        <x-text-input type="text" id="email" name="email" placeholder="name@example.com"/>
                                         <x-input-label for="floatingInput" :value="__('Email')"/>
                                     </div>
                                      <div class="form-floating mb-2">
-                                        <x-text-input type="passport" id="Password" placeholder="Password"/>
+                                        <x-text-input type="passport" id="password" name="password" placeholder="Password"/>
                                         <x-input-label for="Password" :value="__('Password')"/>
                                     </div>
                                     <div class="d-flex justify-content-between  align-items-center flex-wrap">
@@ -50,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <x-button type="button" :value="__('Sign In')"/>
+                                        <x-button type="button" id="loginButton" :value="__('Sign In')"/>
                                     </div>
                                     <div class="text-center mt-3">
                                         <p>or sign in with others account?</p>
@@ -71,7 +70,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </x-form>
                                 <div class="new-account mt-3 text-center">
                                     <p>Don't have an account? <a class="" href="{{route('register')}}">Click
                                             here to Sign up</a></p>
@@ -112,5 +110,32 @@
     <script src="../../assets/js/charts/apexcharts.js"></script>
     
     <!-- Gsap Animation Init -->
-    <script src="../../assets/js/gsap.js"></script>  </body>
+    <script src="../../assets/js/gsap.js"></script>  
+    <script>
+        $(document).ready(function(){
+            $("#loginButton").on("click",function(){
+             const email = $("#email").val();
+             const password = $("#password").val();
+             $.ajax({
+                 url:'login',
+                 type:'POST',
+                 contentType:'application/json',
+                 data:JSON.stringify({
+                     email:email,
+                     password:password
+                 }),
+                 success:function(response){
+                     console.log(response.data.token);
+                     localStorage.setItem('api-token',response.data.token);
+                     window.location.href = '/api/index';
+                 },
+                 error:function(xhr,status,error){
+                     console.log('Error:' + xhr.responseText);
+                 }
+             });
+ 
+         });
+        });
+     </script>
+</body>
 </html>
